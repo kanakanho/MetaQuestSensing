@@ -136,7 +136,12 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 6ac7026f8a19e1b429cf2098010bf469, type: 2}
+  - {fileID: 0}
+  - {fileID: 6212662049927596082, guid: 21de6393289120d4685b0032bbc29fe6, type: 2}
+  - {fileID: 11400000, guid: 14d2ae6f5e68f0841958ba6a3172b914, type: 2}
+  - {fileID: -1305407867369044355, guid: 155653c31053b9445a9ac4301d940f1a, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -247,7 +252,7 @@ PlayerSettings:
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@8.1.1
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 0
+  useCustomMainManifest: 1
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
