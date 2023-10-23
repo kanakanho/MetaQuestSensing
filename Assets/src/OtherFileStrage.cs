@@ -3,19 +3,18 @@ using UnityEngine;
 
 public class OtherFileStorage
 {
-    private bool fileAppend = true; //true=追記, false=上書き
+    private bool fileAppend = true;
     private string fileName = "empty";
     private string extension = ".csv";
     private int distimation = 0;
     private readonly string date = System.DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
-    private string filePath = Application.dataPath + "/SensorData";
+    private string filePath = Application.persistentDataPath + "";
 
     public OtherFileStorage(string fileName,int distimation)
     { 
         this.fileName = fileName;
         this.distimation = distimation;
 
-        //一行目の表題の確認
         this.writeText(firstLog(distimation),pathGet());
     }
 
@@ -28,10 +27,10 @@ public class OtherFileStorage
 
     private void writeText(string text, string path)
     {
-        StreamWriter sw = new StreamWriter(path, fileAppend);// TextData.txtというファイルを新規で用意
-        sw.WriteLine(text);// ファイルに書き出したあと改行
-        sw.Flush();// StreamWriterのバッファに書き出し残しがないか確認
-        sw.Close();// ファイルを閉じる
+        StreamWriter sw = new StreamWriter(path, fileAppend);
+        sw.WriteLine(text);
+        sw.Flush();
+        sw.Close();
     }
 
     private string firstLog(int dimension)
