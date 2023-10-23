@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
-using UnityEngine.UI;
-using System.IO;
 using System;
 
 public class sensor : MonoBehaviour
 {
     public XRNode node;
 
-    public bool tracked = false; // �f�[�^�擾�\��
-    public Vector3 position; // �ʒu
-    public Quaternion rotation; // ����
-    public Vector3 velocity; // ���x
-    public Vector3 acceleration; // �����x
-    public Vector3 angularVelocity; // �p���x
-    public Vector3 angularAcceleration; // �p�����x
+    public bool tracked = false;
+    public Vector3 position;
+    public Quaternion rotation;
+    public Vector3 velocity;
+    public Vector3 acceleration;
+    public Vector3 angularVelocity;
+    public Vector3 angularAcceleration;
 
     private OtherFileStorage positionOtherFileStorage;
     private OtherFileStorage rotateOtherFileStorage;
@@ -25,10 +23,6 @@ public class sensor : MonoBehaviour
 
     DateTime dt;
 
-    public GameObject scoreObject = null;
-    private string output = "";
-
-    // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Start");
@@ -39,7 +33,6 @@ public class sensor : MonoBehaviour
         velocityOtherFileStorage = new OtherFileStorage("velocity", 3);
     }
 
-    // Update is called once per frame
     void Update()
     {
         dt = DateTime.Now;
@@ -49,7 +42,6 @@ public class sensor : MonoBehaviour
         foreach (XRNodeState s in states)
         {
             Debug.Log(s);
-            // �f�[�^�̎擾������
             tracked = s.tracked;
             s.TryGetPosition(out position);
             s.TryGetRotation(out rotation);
@@ -71,12 +63,7 @@ public class sensor : MonoBehaviour
             velocityOtherFileStorage.doLog(velocityText);
             angularVelocityOtherFileStorage.doLog(angularVelocityText);
 
-            output = positionOtherFileStorage + "\n" +rotateOtherFileStorage + "\n" + velocityOtherFileStorage + "\n" + angularAcceleration;
-
-            Text score = scoreObject.GetComponent<Text>();
-            score.text = output;
-
-            break; // ����ȏニ�[�v�𑱂��Ȃ�
+            break; 
         }
     }
 }
