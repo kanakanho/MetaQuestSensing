@@ -50,7 +50,6 @@ public class sensor : MonoBehaviour
             s.TryGetAngularVelocity(out angularVelocity);
             s.TryGetAngularAcceleration(out angularAcceleration);
 
-
             string positionText = string.Format("{0},{1},{2}", position.x, position.y, position.z);
             string rotateText = string.Format("{0},{1},{2},{3}", rotation.x, rotation.y, rotation.z, rotation.w);
             string velocityText = string.Format("{0},{1},{2}", velocity.x, velocity.y, velocity.z);
@@ -63,7 +62,7 @@ public class sensor : MonoBehaviour
             velocityOtherFileStorage.doLog(velocityText);
             angularVelocityOtherFileStorage.doLog(angularVelocityText);
 
-            break; 
+            break;
         }
     }
 }
